@@ -1,0 +1,7 @@
+__pycache__/
+project1-DATABASE_URL
+project1-goodreads-api-key.txt
+youtube-link
+heroku-links
+venv/
+flask_session/

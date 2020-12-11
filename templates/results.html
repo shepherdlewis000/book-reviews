@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block main %}
+	<h3>Search results</h3>
+	<div class="card-columns">
+		{% for result in results %}
+			<div class="card">
+				<!-- book cover as per: https://openlibrary.org/dev/docs/api/covers -->
+				<img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{result['isbn']}}-M.jpg" width="100px" alt="Book cover">
+    			<div class="card-body text-center">
+    				<h6 class="card-title">{{result['title']}}</h6>
+      			<p class="card-text">{{result['author']}}</p>
+      			<p class="card-text">{{result['year']}}</p>
+    			</div>
+    			<div class="card-footer bg-light text-center">
+                <a href="/book/{{result['isbn']}}" class="card-link">Go to book page</a>
+            </div>
+  			</div>
+  		{% endfor %}  		
+  	</div>
+{% endblock %}

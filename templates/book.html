@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+# parameter book, goodreads
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+	<div class="row">
+		<div class="col-sm">
+			<h3>{{book[0]['title']}}</h3>
+			<p>{{book[0]['author']}}</p>
+			<p>{{book[0]['year']}}</p>
+			<p>{{book[0]['isbn']}}</p>
+		</div>
+		<div class="col-sm">
+			<img class="card-img-top" src="http://covers.openlibrary.org/b/isbn/{{book[0]['isbn']}}-M.jpg" width="100px" alt="Book cover">		
+		</div>
+		<!-- print the Goodreads data -->
+		<div class="col-sm">
+			<h5>Goodreads</h5>
+			<p># of ratings: {{goodreads['books'][0]['work_ratings_count']}}</p>
+			<p>avg score: {{goodreads['books'][0]['average_rating']}}</p>
+			<a href="https://www.goodreads.com/search?q={{book[0]['title']}}">Goodreads page</a>
+		</div>
+	</div>	
+	<div>
+		<h3>Leave a review...</h3>
+		<form method="POST">
+			<div class="form-group">
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+  					<label class="form-check-label" for="inlineRadio1">1</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+  					<label class="form-check-label" for="inlineRadio2">2</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+  					<label class="form-check-label" for="inlineRadio3">3</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+  					<label class="form-check-label" for="inlineRadio4">4</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+  					<label class="form-check-label" for="inlineRadio5">5</label>
+				</div>
+							
+			</div>
+			<div class="form-group">
+  				<label for="exampleFormControlTextarea1">Leave a review here...</label>
+  				<textarea class="form-control rounded-0" name="text" id="exampleFormControlTextarea1" rows="5"></textarea>
+			</div>
+			<button class="btn btn-primary" type="submit">Submit review</button>		
+		</form>
+		<ul class="list-group">
+		{% for review in reviews %}
+			<li class="list-group-item">
+				<p>User: {{review[2]}}</p>
+				<p>Rating: {{review[0]}}</p>
+				<p>Comments: {{review[1]}}</p>
+			</li>
+  		{% endfor %}
+  	</ul>
+			
+	</div>
+    
+{% endblock %}
