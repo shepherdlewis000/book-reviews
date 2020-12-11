@@ -2,6 +2,8 @@ Book Review Site
 
 This project is a book review website. Users are able to register for the site and then log in using their username and password. Once they log in, they are able to search for books, leave reviews for individual books, and see the reviews made by other people. Using a third-party API by Goodreads, it also pulls in ratings from a broader audience. Finally, users are able to query for book details and book reviews programmatically via this website’s API.
 
+DEMO: https://ls-book-reviews.herokuapp.com/
+
 Registration: Users are able to register for the website, providing a username and password.
 
 Login: Users once registered are able to log in to the website with their username and password.
